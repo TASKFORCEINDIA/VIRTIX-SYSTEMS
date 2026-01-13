@@ -235,9 +235,7 @@ body {
 
 /* SKU CARD */
 .sku-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  
   background: #ffffff;
   padding: 14px 16px;
   border-radius: 6px;
@@ -370,4 +368,20 @@ body {
   .po-container {
     border: none;
   }
+  /* ===== PAGE MODE FIX ===== */
+
+/* Default for all pages */
+body {
+  display: block;
+  margin: 0;
+}
+
+/* Login page only */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 
