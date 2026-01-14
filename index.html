@@ -12,66 +12,57 @@
 <header>
   <h1>VIRTIX SYSTEMS</h1>
 </header>
+
+<!-- PRODUCTS -->
 <section class="products">
   <h2>Products</h2>
 
-  <div class="product-grid">
+  <div class="product-grid" id="productGrid">
 
     <div class="product-card" onclick="openCategory('medical')">
-  <h3>Medical Consumables</h3>
-  <p>Gloves · Syringes · Needles · IV Sets</p>
-</div>
+      <h3>Medical Consumables</h3>
+    </div>
 
-
-    <div class="product-card">
+    <div class="product-card" onclick="openCategory('lab')">
       <h3>Lab Consumables</h3>
-      <p>Vacutainers · Slides · Containers</p>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" onclick="openCategory('infection')">
       <h3>Infection Control</h3>
-      <p>Masks · Sanitizers · Disinfectants</p>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" onclick="openCategory('wound')">
       <h3>Wound Care</h3>
-      <p>Cotton · Gauze · Bandages</p>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" onclick="openCategory('general')">
       <h3>General Supplies</h3>
-      <p>Linen · Waste Bags · Paper Rolls</p>
     </div>
 
-  </section>   <!-- Products section ends -->
+    <div class="product-card" onclick="openCategory('more')">
+      <h3>More Products</h3>
+    </div>
 
-<!-- PASTE BELOW THIS LINE -->
+  </div>
+</section>
 
+<!-- CATEGORY VIEW (HIDDEN) -->
 <section id="categoryView" style="display:none; padding:20px;">
   <h3 id="categoryTitle"></h3>
 
-  <div id="categoryItems"></div>
+  <div class="product-grid" id="categoryItems"></div>
 
-  <button onclick="closeCategory()">← Back</button>
+  <div style="margin-top:20px;">
+    <button class="btn btn-outline" onclick="closeCategory()">← Back</button>
+  </div>
 </section>
-
-
-<section id="categoryView" style="display:none; padding:20px;">
-  <h3 id="categoryTitle"></h3>
-
-  <div id="categoryItems"></div>
-
-  <button onclick="closeCategory()">← Back</button>
-</section>
-
-
 
 <!-- SINGLE ACTION BUTTON -->
 <div style="text-align:center; margin:40px 0;">
   <button class="cta-btn" onclick="togglePO()">Create Purchase Order</button>
+</div>
 
-
-<!-- PO FORM (HIDDEN BY DEFAULT) -->
+<!-- PO FORM -->
 <section class="po-section" id="poForm" style="display:none;">
   <h3>Create Purchase Order</h3>
   <p class="hint">Fill once. Share anywhere.</p>
@@ -125,6 +116,35 @@
 </footer>
 
 <script>
+const categories = {
+  medical: ["Gloves", "Syringes", "Needles", "IV Sets"],
+  lab: ["Vacutainers", "Slides", "Containers"],
+  infection: ["Masks", "Sanitizers", "Disinfectants"],
+  wound: ["Cotton", "Gauze", "Bandages"],
+  general: ["Linen", "Waste Bags", "Paper Rolls"],
+  more: ["Diagnostics", "Equipment", "Custom Items"]
+};
+
+function openCategory(cat) {
+  document.getElementById("productGrid").style.display = "none";
+  document.getElementById("categoryView").style.display = "block";
+
+  document.getElementById("categoryTitle").innerText =
+    cat.charAt(0).toUpperCase() + cat.slice(1) + " Items";
+
+  const box = document.getElementById("categoryItems");
+  box.innerHTML = "";
+
+  categories[cat].forEach(item => {
+    box.innerHTML += `<div class="product-card">${item}</div>`;
+  });
+}
+
+function closeCategory() {
+  document.getElementById("categoryView").style.display = "none";
+  document.getElementById("productGrid").style.display = "grid";
+}
+
 function togglePO() {
   const form = document.getElementById("poForm");
   form.style.display = "block";
