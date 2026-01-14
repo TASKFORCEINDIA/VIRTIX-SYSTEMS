@@ -87,18 +87,23 @@
     <input type="text">
   </div>
 
-  <table>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Unit</th>
-    </tr>
-    <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-    </tr>
-  </table>
+  <table id="poTable">
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+  </tr>
+  <tr>
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+  </tr>
+</table>
+
+<button class="btn btn-outline" onclick="addRow()" style="margin-top:10px;">
+  + Add product
+</button>
+
 
   <div class="buttons">
     <button class="btn btn-primary">Share on WhatsApp</button>
@@ -150,6 +155,19 @@ function togglePO() {
   form.style.display = "block";
   form.scrollIntoView({ behavior: "smooth" });
 }
+function addRow() {
+  const table = document.getElementById("poTable");
+  const row = table.insertRow(-1);
+
+  row.innerHTML = `
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+    <td><input type="text"></td>
+  `;
+}
+
+
+  
 </script>
 
 </body>
