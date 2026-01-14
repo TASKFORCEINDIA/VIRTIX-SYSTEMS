@@ -11,41 +11,44 @@
 
 <header>
   <h1>VIRTIX SYSTEMS</h1>
-  
 </header>
 
+<h3>Products</h3>
 
-  <h3>Products </h3>
-
-  <div class="product-grid">
-    <div class="product-card">
-      <h4>Medical Consumables</h4>
-      <p>Gloves · Syringes · Needles · IV Sets</p>
-    </div>
-
-    <div class="product-card">
-      <h4>Lab Consumables</h4>
-      <p>Vacutainers · Slides · Containers</p>
-    </div>
-
-    <div class="product-card">
-      <h4>Infection Control</h4>
-      <p>Masks · Sanitizers · Disinfectants</p>
-    </div>
-
-    <div class="product-card">
-      <h4>Wound Care</h4>
-      <p>Cotton · Gauze · Bandages</p>
-    </div>
-
-    <div class="product-card">
-      <h4>General Supplies</h4>
-      <p>Linen · Waste Bags · Paper Rolls</p>
-    </div>
+<div class="product-grid">
+  <div class="product-card">
+    <h4>Medical Consumables</h4>
+    <p>Gloves · Syringes · Needles · IV Sets</p>
   </div>
-</section>
 
-<section class="po-section" id="po">
+  <div class="product-card">
+    <h4>Lab Consumables</h4>
+    <p>Vacutainers · Slides · Containers</p>
+  </div>
+
+  <div class="product-card">
+    <h4>Infection Control</h4>
+    <p>Masks · Sanitizers · Disinfectants</p>
+  </div>
+
+  <div class="product-card">
+    <h4>Wound Care</h4>
+    <p>Cotton · Gauze · Bandages</p>
+  </div>
+
+  <div class="product-card">
+    <h4>General Supplies</h4>
+    <p>Linen · Waste Bags · Paper Rolls</p>
+  </div>
+</div>
+
+<!-- SINGLE ACTION BUTTON -->
+<div style="text-align:center; margin:40px 0;">
+  <button class="primary-btn" onclick="togglePO()">Create Purchase Order</button>
+</div>
+
+<!-- PO FORM (HIDDEN BY DEFAULT) -->
+<section class="po-section" id="poForm" style="display:none;">
   <h3>Create Purchase Order</h3>
   <p class="hint">Fill once. Share anywhere.</p>
 
@@ -53,13 +56,6 @@
     <label>Hospital / Lab Name</label>
     <input type="text">
   </div>
-<button class="primary-btn" onclick="togglePO()">
-  Create Purchase Order
-</button>
-
-<div id="poForm" style="display:none;">
-  <!-- EXISTING PO FORM CODE GOES HERE -->
-</div>
 
   <div class="form-group">
     <label>City</label>
@@ -90,11 +86,11 @@
   </table>
 
   <div class="buttons">
-    <button class="btn btn-primary">Generate PO</button>
-    <button class="btn btn-outline">Share on WhatsApp</button>
+    <button class="btn btn-primary">Share on WhatsApp</button>
+    <button class="btn btn-outline">Generate PO</button>
     <button class="btn btn-outline">Download PDF</button>
   </div>
-
+</section>
 
 <section class="whatsapp">
   <a href="https://wa.me/XXXXXXXXXX">Need help? WhatsApp us</a>
@@ -103,6 +99,7 @@
 <footer>
   VIRTIX SYSTEMS · Simple tools for medical procurement
 </footer>
+
 <script>
 function togglePO() {
   const form = document.getElementById("poForm");
