@@ -53,6 +53,13 @@
     <label>Hospital / Lab Name</label>
     <input type="text">
   </div>
+<button class="primary-btn" onclick="togglePO()">
+  Create Purchase Order
+</button>
+
+<div id="poForm" style="display:none;">
+  <!-- EXISTING PO FORM CODE GOES HERE -->
+</div>
 
   <div class="form-group">
     <label>City</label>
@@ -101,6 +108,13 @@
 <footer>
   VIRTIX SYSTEMS · Simple tools for medical procurement
 </footer>
+<script>
+function togglePO() {
+  const form = document.getElementById("poForm");
+  form.style.display = "block";
+  form.scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </body>
 </html>
